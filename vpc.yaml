@@ -1,0 +1,10 @@
+---
+- name: Configure VPC
+  hosts: isn,cpe
+  tasks:
+    - name: Configure Hostname
+      cisco.nxos.nxos_hostname:
+        config:
+          hostname: "{{ inventory_hostname }}"
+
+    
