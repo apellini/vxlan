@@ -13,6 +13,11 @@
         state: enabled
       loop: "{{ vpc.features }}"
 
+    - name: Enable Interfaces
+      cisco.nxos.interfaces:
+        config: "{{ vpc.l1_members }}"
+        state: merged
+
     - name: Configure Peer-Link Interfaces
       cisco.nxos.nxos_l2_interfaces:
         config: "{{ vpc.members }}"
@@ -20,7 +25,7 @@
     
     - name: Configure Port-Channel
       cisco.nxos.nxos_lag_interfaces:
-        config: "{{ vpc.port_channel }}"
+        config: "{{ vpc.port_channels }}"
         state: merged
 
     - name: Configure STP priority
@@ -55,9 +60,4 @@
         lines:
           - spanning-tree port type network
         parents: "interface {{ vpc.port_channel }}"
-
-    - name: Enable Interfaces
-      cisco.nxos.interfaces:
-        config: "{{ vpc.members }}"
-        state: merged
 
