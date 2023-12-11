@@ -1,0 +1,8 @@
+---
+- name: test
+  hosts: site1-isn1-n9k
+  tasks:
+    - name: test
+      cisco.nxos.nxos_hostname:
+        config:
+          hostname: "{{ inventory_hostname }}"
