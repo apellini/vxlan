@@ -6,5 +6,58 @@
       cisco.nxos.nxos_hostname:
         config:
           hostname: "{{ inventory_hostname }}"
-
     
+    - name: Enable features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
+      loop: "{{ vpc.features }}"
+
+    - name: Configure Peer-Link Interfaces
+      cisco.nxos.nxos_l2_interfaces:
+        config: "{{ vpc.members }}"
+        state: merged
+    
+    - name: Configure Port-Channel
+      cisco.nxos.nxos_lag_interfaces:
+        config: "{{ vpc.port_channel }}"
+        state: merged
+
+    - name: Configure STP priority
+      cisco.nxos.nxos_config:
+        lines:
+          - spanning-tree vlan 1-3967 priority 4096
+
+    - name: Configure vPC Domain
+      cisco.nxos.nxos_vpc:
+        domain: "{{ vpc.domain }}"
+        role_priority: "{{ vpc.role_priority }}"
+        peer_gateway: "{{ vpc.peer_gateway }}"
+        pkl_dest: "{{ vpc.pkl_dest }}"
+        pkl_src: "{{ vpc.pkl_src }}"
+        pkl_vrf: "{{ vpc.pkl_vrf }}"
+        state: present
+
+    - name: Configure peer-switch
+      cisco.nxos.nxos_config:
+        lines:
+          - peer-switch
+        parents: "vpc domain {{ vpc.domain }}"
+
+    - name: Configure VPC Peer-Link
+      cisco.nxos.nxos_vpc_interface:
+        peer_link: true
+        portchannel: vpc.port_channel
+        state: present
+    
+    - name: Configure STP Network
+      cisco.nxos.nxos_config:
+        lines:
+          - spanning-tree port type network
+        parents: "interface {{ vpc.port_channel }}"
+
+    - name: Enable Interfaces
+      cisco.nxos.interfaces:
+        config: "{{ vpc.members }}"
+        state: merged
+
