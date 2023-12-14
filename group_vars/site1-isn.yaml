@@ -24,4 +24,4 @@ vpc:
     - name: Ethernet1/6
       mode: trunk
     - name: Ethernet1/7
-      mode: layer2
+      mode: trunk
