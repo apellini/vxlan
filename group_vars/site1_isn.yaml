@@ -25,3 +25,8 @@ vpc:
       mode: trunk
     - name: Ethernet1/7
       mode: trunk
+
+svi:
+  vlans:
+    - name: V3000_P2P-SITE1-ISN1-ISN2
+      vlan_id: 3000

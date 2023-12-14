@@ -1,0 +1,33 @@
+---
+- name: Configure L3 Interface
+  hosts: isn
+  tasks:
+    - name: Configure VRF
+      cisco.nxos.nxos_vrf:
+        name: "{{ vrf.name }}"
+        state: present
+    
+    - name: Create vlan
+      cisco.nxos.nxos_vlans:
+        config: "{{ svi.vlans }}"
+
+    - name: Configure L3 Interface
+      cisco.nxos.interfaces:
+        config: "{{ l3.members }}"
+        state: merged
+    
+    - name: Assign interfaces to VRF
+      cisco.nxos.nxos_vrf_interface:
+        interface: "{{ item.name }}"
+        vrf: "{{ vrf.name }}"
+        state: present
+      loop: "{{ l3.members }}"
+
+    - name: Assign IP to interface
+      cisco.nxos.nxos_l3_interfaces:
+        config: "{{ l3.members }}"
+        state: merged
+    
+    - name: Save configuration
+      cisco.nxos.nxos_config:
+        save_when: changed
