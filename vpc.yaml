@@ -53,7 +53,7 @@
     - name: Configure VPC Peer-Link
       cisco.nxos.nxos_vpc_interface:
         peer_link: true
-        portchannel: vpc.port_channel
+        portchannel: "{{ vpc.domain }}"
         state: present
     
     - name: Configure STP Network
