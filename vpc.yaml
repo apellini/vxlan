@@ -1,7 +1,7 @@
 ---
 - name: Configure VPC
-  #hosts: isn,cpe
-  hosts: site1_isn
+  hosts: isn,cpe
+  #hosts: site1_isn
   tasks:
     - name: Configure Hostname
       cisco.nxos.nxos_hostname:
