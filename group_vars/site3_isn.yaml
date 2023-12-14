@@ -1,0 +1,27 @@
+vpc:
+  domain: 300
+  peer_gateway: true
+  pkl_vrf: management
+  port_channel: Port-Channel300
+  port_channels:
+    - name: 300
+      members:
+        - member: Ethernet1/7
+          mode: active
+        - member: Ethernet1/6
+          mode: active
+  features:
+    - lacp
+    - vpc
+  l1_members:
+    - name: Ethernet1/6
+      mode: layer2
+      enabled: true
+    - name: Ethernet1/7
+      mode: layer2
+      enabled: true
+  members:
+    - name: Ethernet1/6
+      mode: trunk
+    - name: Ethernet1/7
+      mode: trunk
