@@ -34,6 +34,16 @@
         config: "{{ l3.members }}"
         state: merged
     
+    - name: Configure OSPF Process
+      cisco.nxos.nxos_ospfv2:
+        config: "{{ ospf }}"
+        state: merged
+
+    - name: Configure OSPF Interface
+      cisco.nxos.nxos_ospf_interfaces:
+        config: "{{ l3.members }}"
+        state: merged
+
     - name: Save configuration
       cisco.nxos.nxos_config:
         save_when: changed

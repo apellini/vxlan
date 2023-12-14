@@ -12,10 +12,28 @@ l3:
       name: Loopback1
       ipv4:
         - address: 100.66.1.255/32
+      address_family:
+        - afi: ipv4
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
     - enabled: true
       mtu: 9216
       mode: layer3
       name: Ethernet1/1
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            key: ospfpassword
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
       ipv4:
         - address: 100.66.0.2/31
     - enabled: true
@@ -24,3 +42,33 @@ l3:
       name: Vlan3000
       ipv4:
         - address: 100.66.0.0/31
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            key: ospfpassword
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+                
+ospf:
+  process_id: 100
+  vrfs:
+    - vrf: NOC_UNDERLAY
+      process: 100
+      router_id: 100.66.1.255
+      areas: 
+        - area_id: 0.0.0.0
+          authentication:
+            message_digest: true
+            set: true
+          auto_cost:
+            reference_bandwidth: 10
+            unit: Gbps
+          bfd: true
+          log_adjacency_changes:
+            log: true

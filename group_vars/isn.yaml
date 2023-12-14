@@ -1,8 +1,2 @@
-ospf:
-  vrfs:
-    - vrf: NOC_UNDERLAY
-      process: 100
-      routerid:
-        interface: lo0
-      area: 0.0.0.0
+
       
