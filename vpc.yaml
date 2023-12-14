@@ -62,3 +62,6 @@
           - spanning-tree port type network
         parents: "interface {{ vpc.port_channel }}"
 
+    - name: Save configuration
+      cisco.nxos.nxos_config:
+        save_when: changed
