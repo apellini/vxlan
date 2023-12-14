@@ -6,7 +6,13 @@
       cisco.nxos.nxos_vrf:
         name: "{{ vrf.name }}"
         state: present
-    
+
+    - name: Enable features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
+      loop: "{{ l3_features }}"
+
     - name: Create vlan
       cisco.nxos.nxos_vlans:
         config: "{{ svi.vlans }}"

@@ -25,3 +25,6 @@ vpc:
       mode: trunk
     - name: Ethernet1/7
       mode: trunk
+
+l3_features:
+  - interface-vlan
