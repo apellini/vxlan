@@ -1,1 +1,5 @@
 ansible_host: 10.190.20.12
+vpc_device:
+  pkl_dest: 10.190.20.13
+  pkl_src: 10.190.20.12
+  role_priority: 256
