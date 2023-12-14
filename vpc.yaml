@@ -37,10 +37,10 @@
     - name: Configure vPC Domain
       cisco.nxos.nxos_vpc:
         domain: "{{ vpc.domain }}"
-        role_priority: "{{ vpc.role_priority }}"
+        role_priority: "{{ vpc_device.role_priority }}"
         peer_gateway: "{{ vpc.peer_gateway }}"
-        pkl_dest: "{{ vpc.pkl_dest }}"
-        pkl_src: "{{ vpc.pkl_src }}"
+        pkl_dest: "{{ vpc_device.pkl_dest }}"
+        pkl_src: "{{ vpc_device.pkl_src }}"
         pkl_vrf: "{{ vpc.pkl_vrf }}"
         state: present
 
