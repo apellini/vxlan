@@ -38,7 +38,7 @@
       cisco.nxos.nxos_vpc:
         domain: "{{ vpc.domain }}"
         role_priority: "{{ vpc_device.role_priority }}"
-        peer_gateway: "{{ vpc.peer_gateway }}"
+        peer_gw: "{{ vpc.peer_gateway }}"
         pkl_dest: "{{ vpc_device.pkl_dest }}"
         pkl_src: "{{ vpc_device.pkl_src }}"
         pkl_vrf: "{{ vpc.pkl_vrf }}"
