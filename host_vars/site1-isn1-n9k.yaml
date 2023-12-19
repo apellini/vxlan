@@ -76,7 +76,6 @@ l3:
                 area_id: 0.0.0.0
   members:
     - enabled: true
-      mtu: 1500
       mode: layer3
       name: Loopback1
     - enabled: true
