@@ -104,19 +104,19 @@ l3:
                 
 ospf:
   processes:
-    process_id: 100
-    vrfs:
-      - vrf: NOC_UNDERLAY
-        process: 100
-        router_id: 100.66.1.255
-        areas: 
-          - area_id: 0.0.0.0
-            authentication:
-              message_digest: true
-              set: true
-            auto_cost:
-              reference_bandwidth: 10
-              unit: Gbps
-            bfd: true
-            log_adjacency_changes:
-              log: true
+    - process_id: 100
+      vrfs:
+        - vrf: NOC_UNDERLAY
+          process: 100
+          router_id: 100.66.1.255
+          areas: 
+            - area_id: 0.0.0.0
+              authentication:
+                message_digest: true
+                set: true
+              auto_cost:
+                reference_bandwidth: 10
+                unit: Gbps
+              bfd: true
+              log_adjacency_changes:
+                log: true
