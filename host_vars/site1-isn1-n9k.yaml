@@ -117,6 +117,6 @@ ospf:
               auto_cost:
                 reference_bandwidth: 10
                 unit: Gbps
-              bfd: true
-              log_adjacency_changes:
-                log: true
+          bfd: true
+          log_adjacency_changes:
+            log: true
