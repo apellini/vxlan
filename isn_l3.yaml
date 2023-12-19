@@ -47,4 +47,4 @@
 
     - name: Save configuration
       cisco.nxos.nxos_config:
-        save_when: changed
+        save_when: always

@@ -20,7 +20,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
-            key: ospfpassword
+            key: ospf
           network: point-to-point
           processes:
             - process_id: 100
@@ -33,7 +33,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
-            key: ospfpassword
+            key: ospf
           network: point-to-point
           processes:
             - process_id: 100
@@ -46,7 +46,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
-            key: ospfpassword
+            key: ospf
           network: point-to-point
           processes:
             - process_id: 100
@@ -59,7 +59,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
-            key: ospfpassword
+            key: ospf
           network: point-to-point
           processes:
             - process_id: 100
