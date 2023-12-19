@@ -20,6 +20,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
+            encryption: 0
             key: ospf
           network: point-to-point
           processes:
@@ -33,6 +34,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
+            encryption: 0
             key: ospf
           network: point-to-point
           processes:
@@ -46,6 +48,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
+            encryption: 0
             key: ospf
           network: point-to-point
           processes:
@@ -59,6 +62,7 @@ l3:
             enable: true
             message_digest: true
           authentication_key:
+            encryption: 0
             key: ospf
           network: point-to-point
           processes:
