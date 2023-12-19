@@ -32,7 +32,7 @@
 
     - name: Assign IP to interface
       cisco.nxos.nxos_l3_interfaces:
-        config: "{{ l3.members }}"
+        config: "{{ l3.l3_members }}"
         state: merged
     
     - name: Configure OSPF Process
@@ -42,7 +42,7 @@
 
     - name: Configure OSPF Interface
       cisco.nxos.nxos_ospf_interfaces:
-        config: "{{ l3.members }}"
+        config: "{{ l3.ospf_members }}"
         state: merged
 
     - name: Save configuration
