@@ -39,6 +39,42 @@ l3:
     - enabled: true
       mtu: 9216
       mode: layer3
+      name: Ethernet1/3
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            key: ospfpassword
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+      ipv4:
+        - address: 100.66.0.6/31
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/2
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            key: ospfpassword
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+      ipv4:
+        - address: 100.66.0.4/31
+    - enabled: true
+      mtu: 9216
+      mode: layer3
       name: Vlan3000
       ipv4:
         - address: 100.66.0.0/31
