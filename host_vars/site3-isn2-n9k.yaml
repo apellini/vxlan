@@ -4,6 +4,57 @@ vpc_device:
   pkl_src: 10.190.30.11
   role_priority: 32768
 
+l3:
+  ospf_members:
+    - name: Loopback1
+      address_family:
+        - afi: ipv4
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/3
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/2
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Vlan3300
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
   l3_members:
     - name: Loopback1
       ipv4:
