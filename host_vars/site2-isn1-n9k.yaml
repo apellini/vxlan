@@ -102,7 +102,6 @@ l3:
       name: Ethernet1/2
     - enabled: true
       mtu: 9216
-      mode: layer3
       name: Vlan3200
                 
 ospf:
