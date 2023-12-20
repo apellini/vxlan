@@ -1,6 +1,6 @@
 ---
 - name: Configure L3 Interface
-  hosts: isn
+  hosts: isn,cpe
   tasks:
     - name: Configure VRF
       cisco.nxos.nxos_vrf:
