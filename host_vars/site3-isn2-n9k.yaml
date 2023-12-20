@@ -70,7 +70,6 @@ l3:
         - address: 100.66.0.21/31
   members:
     - enabled: true
-      mode: layer3
       name: Loopback1
     - enabled: true
       mtu: 9216
