@@ -3,3 +3,123 @@ vpc_device:
   pkl_dest: 10.190.10.10
   pkl_src: 10.190.10.11
   role_priority: 32768
+
+l3:
+  ospf_members:
+    - name: Loopback1
+      address_family:
+        - afi: ipv4
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/1
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/3
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/2
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Vlan3100
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+  l3_members:
+    - name: Loopback1
+      ipv4:
+        - address: 100.66.1.254/32
+    - name: Ethernet1/1
+      ipv4:
+        - address: 100.66.0.8/31
+    - name: Ethernet1/3
+      ipv4:
+        - address: 100.66.0.12/31
+    - name: Ethernet1/2
+      ipv4:
+        - address: 100.66.0.10/31
+    - name: Vlan3100
+      ipv4:
+        - address: 100.66.0.1/31
+  members:
+    - enabled: true
+      mode: layer3
+      name: Loopback1
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/1
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/3
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/2
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Vlan3100
+                
+ospf:
+  processes:
+    - process_id: 100
+      vrfs:
+        - vrf: NOC_UNDERLAY
+          router_id: 100.66.1.254
+          areas: 
+            - area_id: 0.0.0.0
+              authentication:
+                message_digest: true
+                set: true
+          auto_cost:
+            reference_bandwidth: 10
+            unit: Gbps
+          bfd: true
+          log_adjacency_changes:
+            log: true

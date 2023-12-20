@@ -3,3 +3,51 @@ vpc_device:
   pkl_dest: 10.190.30.10
   pkl_src: 10.190.30.11
   role_priority: 32768
+
+  l3_members:
+    - name: Loopback1
+      ipv4:
+        - address: 100.66.1.250/32
+    - name: Ethernet1/2
+      ipv4:
+        - address: 100.66.0.13/31
+    - name: Ethernet1/3
+      ipv4:
+        - address: 100.66.0.19/31
+    - name: Vlan3300
+      ipv4:
+        - address: 100.66.0.21/31
+  members:
+    - enabled: true
+      mode: layer3
+      name: Loopback1
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/2
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/3
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Vlan3300
+                
+ospf:
+  processes:
+    - process_id: 100
+      vrfs:
+        - vrf: NOC_UNDERLAY
+          router_id: 100.66.1.250
+          areas: 
+            - area_id: 0.0.0.0
+              authentication:
+                message_digest: true
+                set: true
+          auto_cost:
+            reference_bandwidth: 10
+            unit: Gbps
+          bfd: true
+          log_adjacency_changes:
+            log: true
