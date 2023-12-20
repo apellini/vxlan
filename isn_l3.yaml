@@ -1,7 +1,6 @@
 ---
 - name: Configure L3 Interface
-  #hosts: isn
-  hosts: site1-isn1-n9k
+  hosts: isn
   tasks:
     - name: Configure VRF
       cisco.nxos.nxos_vrf:
