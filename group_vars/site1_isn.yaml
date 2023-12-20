@@ -28,8 +28,8 @@ vpc:
 
 svi:
   vlans:
-    - name: V3000_P2P-SITE1-ISN1-ISN2
-      vlan_id: 3000
+    - name: V3100_P2P-SITE1-ISN1-ISN2
+      vlan_id: 3100
 
 l3_features:
   - interface-vlan

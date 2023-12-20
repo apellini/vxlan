@@ -28,3 +28,10 @@ vpc:
 
 l3_features:
   - interface-vlan
+  - bfd
+  - ospf
+
+svi:
+  vlans:
+    - name: V3300_P2P-SITE3-ISN1-ISN2
+      vlan_id: 3300

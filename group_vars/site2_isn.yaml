@@ -25,3 +25,13 @@ vpc:
       mode: trunk
     - name: Ethernet1/7
       mode: trunk
+
+l3_features:
+  - interface-vlan
+  - bfd
+  - ospf
+
+svi:
+  vlans:
+    - name: V3200_P2P-SITE2-ISN1-ISN2
+      vlan_id: 3200
