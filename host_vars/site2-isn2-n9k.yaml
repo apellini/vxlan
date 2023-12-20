@@ -55,6 +55,34 @@ l3:
             - process_id: 100
               area:
                 area_id: 0.0.0.0
+    - name: Ethernet1/4
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/5
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
     - name: Vlan3200
       address_family:
         - afi: ipv4
@@ -82,11 +110,18 @@ l3:
     - name: Ethernet1/2
       ipv4:
         - address: 100.66.0.5/31
+    - name: Ethernet1/4
+      ipv4:
+        - address: 100.66.0.112/31
+    - name: Ethernet1/5
+      ipv4:
+        - address: 100.66.0.114/31
     - name: Vlan3200
       ipv4:
         - address: 100.66.0.15/31
   members:
     - enabled: true
+      mode: layer3
       name: Loopback1
     - enabled: true
       mtu: 9216
@@ -102,6 +137,15 @@ l3:
       name: Ethernet1/2
     - enabled: true
       mtu: 9216
+      mode: layer3
+      name: Ethernet1/4
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/5
+    - enabled: true
+      mtu: 9216
+      mode: layer3
       name: Vlan3200
                 
 ospf:
