@@ -25,3 +25,12 @@ vpc:
       mode: trunk
     - name: Ethernet1/7
       mode: trunk
+svi:
+  vlans:
+    - name: V3101_P2P-SITE1-CPE1-CPE2
+      vlan_id: 3101
+
+l3_features:
+  - interface-vlan
+  - bfd
+  - ospf
