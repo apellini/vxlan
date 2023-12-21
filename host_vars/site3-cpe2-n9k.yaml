@@ -3,3 +3,102 @@ vpc_device:
   pkl_dest: 10.190.30.12
   pkl_src: 10.190.30.13
   role_priority: 32768
+
+l3:
+  ospf_members:
+    - name: Loopback1
+      address_family:
+        - afi: ipv4
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/4
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Ethernet1/5
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+    - name: Vlan3301
+      address_family:
+        - afi: ipv4
+          authentication:
+            enable: true
+            message_digest: true
+          authentication_key:
+            encryption: 0
+            key: ospf
+          network: point-to-point
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
+  l3_members:
+    - name: Loopback1
+      ipv4:
+        - address: 100.66.1.240/32
+    - name: Ethernet1/4
+      ipv4:
+        - address: 100.66.0.119/31
+    - name: Ethernet1/5
+      ipv4:
+        - address: 100.66.0.123/31
+    - name: Vlan3301
+      ipv4:
+        - address: 100.66.0.35/31
+  members:
+    - enabled: true
+      name: Loopback1
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/4
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Ethernet1/5
+    - enabled: true
+      mtu: 9216
+      mode: layer3
+      name: Vlan3301
+
+                
+ospf:
+  processes:
+    - process_id: 100
+      vrfs:
+        - vrf: NOC_UNDERLAY
+          router_id: 100.66.1.240
+          areas: 
+            - area_id: 0.0.0.0
+              authentication:
+                message_digest: true
+                set: true
+          auto_cost:
+            reference_bandwidth: 10
+            unit: Gbps
+          bfd: true
+          log_adjacency_changes:
+            log: true
