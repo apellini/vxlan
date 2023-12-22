@@ -1,4 +1,12 @@
 vxlan_features:
   - vn-segment-vlan-based
   - nv overlay
-  
+
+vxlan_vtep_interface:
+  interface: nve1
+  host_reachability: true
+  source_interface: Loopback1
+  shutdwon: false
+  global_suppress_arp: true
+  global_ingress_replication_bgp: true
+  state: present
