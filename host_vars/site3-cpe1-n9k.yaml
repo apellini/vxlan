@@ -81,7 +81,6 @@ l3:
       name: Ethernet1/5
     - enabled: true
       mtu: 9216
-      mode: layer3
       name: Vlan3301
 
                 
