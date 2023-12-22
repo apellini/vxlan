@@ -1,0 +1,4 @@
+vxlan_features:
+  - vn-segment
+  - nv overlay
+  - vn-segment-vlan-based

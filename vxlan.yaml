@@ -1,0 +1,17 @@
+---
+- name: Enable VXLAN
+  hosts: cpe
+  tasks:
+    - name: Enable features
+      cisco.nxos.nxos_feature:
+        feature: "{{ item }}"
+        state: enabled
+      loop: "{{ vxlan_features }}"
+
+    - name: Configure VLAN Mapped to VNI
+      cisco.nxos.nxos_vlans:
+        config: "{{ vlan_hosts }}"
+    
+    - name: Save configuration
+      cisco.nxos.nxos_config:
+        save_when: always

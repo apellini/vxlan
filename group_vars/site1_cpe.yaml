@@ -35,3 +35,11 @@ l3_features:
   - bfd
   - ospf
   - bgp
+
+vlan_hosts:
+  - enabled: true
+    mode: ce
+    state: active
+    vlan_id: 3402
+    name: V3402_TEST_BCG
+    mapped_vni: 4003402
