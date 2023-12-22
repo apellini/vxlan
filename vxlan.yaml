@@ -8,6 +8,10 @@
         state: enabled
       loop: "{{ vxlan_features }}"
 
+    - name: Save configuration
+      cisco.nxos.nxos_config:
+        lines: nv overlay evpn
+
     - name: Configure VLAN Mapped to VNI
       cisco.nxos.nxos_vlans:
         config: "{{ vlan_hosts }}"
