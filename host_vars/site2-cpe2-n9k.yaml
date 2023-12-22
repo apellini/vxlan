@@ -82,7 +82,7 @@ l3:
     - enabled: true
       mtu: 9216
       name: Vlan3201
-    bgp_templates:
+  bgp_templates:
     as_number: 65001
     neighbor:
       - name: NOC_UNDERLAY-CPE-EBGP
