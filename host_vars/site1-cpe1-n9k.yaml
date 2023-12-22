@@ -107,6 +107,7 @@ l3:
       - local_as: 65000
         router_id: 100.66.1.245
         log_neighbor_changes: true
+        vrf: "{{ vrf.name }}"
         neighbors:
           - neighbor_address: 100.66.1.242
             remote_as: 65001
