@@ -82,6 +82,24 @@ l3:
     - enabled: true
       mtu: 9216
       name: Vlan3301
+  bgp_templates:
+    as_number: 65002
+    neighbor:
+      - name: NOC_UNDERLAY-CPE-EBGP
+        update_source: Loopback1
+        ebgp_multihop: 4
+        address_family:
+          - afi: ipv4
+            safi: unicast
+            soft_reconfiguration_inbound:
+              set: true
+      - name: NOC_UNDERLAY-CPE-IBGP
+        update_source: Loopback1
+        address_family:
+          - afi: ipv4
+            safi: unicast
+            soft_reconfiguration_inbound:
+              set: true
   bgp:
     as_number: 65002
     log_neighbor_changes: true
