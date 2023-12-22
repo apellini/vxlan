@@ -82,7 +82,68 @@ l3:
     - enabled: true
       mtu: 9216
       name: Vlan3201
-
+    bgp_templates:
+    as_number: 65001
+    neighbor:
+      - name: NOC_UNDERLAY-CPE-EBGP
+        update_source: Loopback1
+        ebgp_multihop: 4
+        address_family:
+          - afi: ipv4
+            safi: unicast
+            soft_reconfiguration_inbound:
+              set: true
+      - name: NOC_UNDERLAY-CPE-IBGP
+        update_source: Loopback1
+        address_family:
+          - afi: ipv4
+            safi: unicast
+            soft_reconfiguration_inbound:
+              set: true
+  bgp:
+    as_number: 65001
+    log_neighbor_changes: true
+    vrfs:
+      - local_as: 65001
+        router_id: 100.66.1.242
+        log_neighbor_changes: true
+        vrf: "{{ vrf.name }}"
+        neighbors:
+          - neighbor_address: 100.66.1.243
+            remote_as: 65001
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-EBGP
+          - neighbor_address: 100.66.1.241
+            remote_as: 65002
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-EBGP
+          - neighbor_address: 100.66.1.240
+            remote_as: 65002
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-EBGP
+          - neighbor_address: 100.66.1.245
+            remote_as: 65000
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-EBGP
+          - neighbor_address: 100.66.1.244
+            remote_as: 65000
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-IBGP
                 
 ospf:
   processes:
