@@ -109,8 +109,15 @@ l3:
         log_neighbor_changes: true
         vrf: "{{ vrf.name }}"
         neighbors:
-          - neighbor_address: 100.66.1.242
-            remote_as: 65001
+          - neighbor_address: 100.66.1.245
+            remote_as: 65000
+            password:
+              encryption: 0
+              key: bgp
+            inherit:
+              peer: NOC_UNDERLAY-CPE-EBGP
+          - neighbor_address: 100.66.1.244
+            remote_as: 65000
             password:
               encryption: 0
               key: bgp
@@ -130,15 +137,8 @@ l3:
               key: bgp
             inherit:
               peer: NOC_UNDERLAY-CPE-EBGP
-          - neighbor_address: 100.66.1.245
-            remote_as: 65000
-            password:
-              encryption: 0
-              key: bgp
-            inherit:
-              peer: NOC_UNDERLAY-CPE-EBGP
-          - neighbor_address: 100.66.1.244
-            remote_as: 65000
+          - neighbor_address: 100.66.1.242
+            remote_as: 65001
             password:
               encryption: 0
               key: bgp
