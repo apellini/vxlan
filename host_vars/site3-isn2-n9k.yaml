@@ -115,6 +115,7 @@ l3:
       name: Ethernet1/3
     - enabled: true
       mtu: 9216
+      mode: layer3
       name: Ethernet1/4
     - enabled: true
       mtu: 9216
