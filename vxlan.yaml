@@ -8,7 +8,7 @@
         state: enabled
       loop: "{{ vxlan_features }}"
 
-    - name: Save configuration
+    - name: Enable overlay
       cisco.nxos.nxos_config:
         lines: nv overlay evpn
 
