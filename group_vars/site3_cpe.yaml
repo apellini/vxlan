@@ -34,3 +34,4 @@ l3_features:
   - interface-vlan
   - bfd
   - ospf
+  - bgp
