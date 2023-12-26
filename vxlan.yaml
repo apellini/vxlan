@@ -25,6 +25,10 @@
         state: present
       loop: "{{ evni }}"
 
+    - name: Configure TCAM Carving
+      cisco.nxos.nxos_config:
+        lines: hardware access-list tcam region arp-ether 256 double-wide
+
     - name: Configure VTEP Interface
       cisco.nxos.nxos_vxlan_vtep: "{{ vxlan_vtep_interface }}"
 
