@@ -108,7 +108,7 @@ l3:
     - name: Loopback1
       ipv4:
         - address: 100.66.1.255/32
-    - name: Loopback1
+    - name: Loopback2
       ipv4:
         - address: 100.66.2.1/30
     - name: Ethernet1/1
