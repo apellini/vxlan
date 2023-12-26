@@ -13,6 +13,13 @@ l3:
             - process_id: 100
               area:
                 area_id: 0.0.0.0
+    - name: Loopback2
+      address_family:
+        - afi: ipv4
+          processes:
+            - process_id: 100
+              area:
+                area_id: 0.0.0.0
     - name: Ethernet1/1
       address_family:
         - afi: ipv4
@@ -101,6 +108,9 @@ l3:
     - name: Loopback1
       ipv4:
         - address: 100.66.1.254/32
+    - name: Loopback2
+      ipv4:
+        - address: 100.66.2.1/29
     - name: Ethernet1/1
       ipv4:
         - address: 100.66.0.8/31
@@ -122,6 +132,8 @@ l3:
   members:
     - enabled: true
       name: Loopback1
+    - enabled: true
+      name: Loopback2
     - enabled: true
       mtu: 9216
       mode: layer3
@@ -147,6 +159,10 @@ l3:
       name: Vlan3100
   pim_interfaces:
     - interface: Loopback1
+      hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+    - interface: Loopback2
       hello_interval: 250
       hello_interval_ms: true
       sparse: true
