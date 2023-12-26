@@ -59,6 +59,8 @@ l3:
     - name: Loopback1
       ipv4:
         - address: 100.66.1.241/32
+        - address: 100.66.1.234/32
+          secondary: true
     - name: Ethernet1/4
       ipv4:
         - address: 100.66.0.121/31

@@ -109,6 +109,8 @@ l3:
     - name: Loopback1
       ipv4:
         - address: 100.66.1.254/32
+        - address: 100.66.1.239/32
+          secondary: true
     - name: Loopback2
       ipv4:
         - address: 100.66.2.1/29
