@@ -43,6 +43,8 @@ vlan_hosts:
     vlan_id: 3402
     name: V3402_TEST_BCG
     mapped_vni: 4003402
+evni:
+  - vni: 4003402
     route_distinguisher: auto
     route_target_export:
       - 65002:100
