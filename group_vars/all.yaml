@@ -4,4 +4,3 @@ vrf:
 pim:
   - rp_address: 100.66.2.2
     group_list: 239.192.22.0/24
-    bidir: true

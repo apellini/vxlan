@@ -22,9 +22,8 @@
         bfd: enable
 
     - name: Configure RP Address
-      cisco.nxos.nxos_pim_rp_address:
-        bidir: "{{ item.bidir }}"
-        group_list: "{{ item.group_list }}"
-        rp_address: "{{ item.rp_address }}"
-        state: present
+      cisco.nxos.nxos_config:
+        lines: 
+          - "ip pim rp-address {{ item.rp_address }} group-list {{ item.group_list }} bidir"
+        parents: "vrf context {{ vrf.name }}"
       loop: "{{ pim }}"
