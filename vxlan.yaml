@@ -28,6 +28,6 @@
     - name: Configure VTEP Interface
       cisco.nxos.nxos_vxlan_vtep: "{{ vxlan_vtep_interface }}"
 
-    - name: Save configuration
-      cisco.nxos.nxos_config:
-        save_when: always
+    #- name: Save configuration
+    #  cisco.nxos.nxos_config:
+    #    save_when: always
