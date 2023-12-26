@@ -153,27 +153,27 @@ l3:
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/1
+      interface: Ethernet1/1
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/3
+      interface: Ethernet1/3
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/2
+      interface: Ethernet1/2
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/4
+      nameinterface: Ethernet1/4
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/5
+      interface: Ethernet1/5
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Vlan3100
+      interface: Vlan3100
                 
 ospf:
   processes:

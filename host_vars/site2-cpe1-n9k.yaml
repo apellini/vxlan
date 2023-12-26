@@ -90,15 +90,15 @@ l3:
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/4
+      interface: Ethernet1/4
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Ethernet1/5
+      interface: Ethernet1/5
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      name: Vlan3201
+      interface: Vlan3201
   bgp_templates:
     as_number: 65001
     neighbor:
