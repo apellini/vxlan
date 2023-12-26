@@ -148,7 +148,7 @@ l3:
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      interface: Vlan3200
+      interface: Vlan3300
                 
 ospf:
   processes:

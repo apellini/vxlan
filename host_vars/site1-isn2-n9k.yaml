@@ -169,7 +169,7 @@ l3:
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true
-      naminterfacee: Ethernet1/5
+      interface: Ethernet1/5
     - hello_interval: 250
       hello_interval_ms: true
       sparse: true

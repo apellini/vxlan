@@ -19,7 +19,7 @@
 
     - name: Enable BFD on all Interfaces
       cisco.nxos.nxos_pim:
-        bfd: true
+        bfd: enable
 
     - name: Configure RP Address
       cisco.nxos.nxos_pim_rp_address:
