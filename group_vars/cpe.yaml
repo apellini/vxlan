@@ -6,7 +6,7 @@ vxlan_vtep_interface:
   interface: nve1
   host_reachability: true
   source_interface: Loopback1
-  shutdwon: false
+  shutdown: false
   global_suppress_arp: true
   global_ingress_replication_bgp: true
   state: present
