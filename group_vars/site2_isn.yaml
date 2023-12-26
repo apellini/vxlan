@@ -29,6 +29,7 @@ vpc:
 l3_features:
   - interface-vlan
   - bfd
+  - pim
   - ospf
 
 svi:

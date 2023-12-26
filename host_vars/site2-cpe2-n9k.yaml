@@ -82,6 +82,23 @@ l3:
     - enabled: true
       mtu: 9216
       name: Vlan3201
+  pim_interfaces:
+    - interface: Loopback1
+      hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/4
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/5
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Vlan3201
   bgp_templates:
     as_number: 65001
     neighbor:

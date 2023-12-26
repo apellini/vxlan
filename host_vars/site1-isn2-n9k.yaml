@@ -145,6 +145,35 @@ l3:
     - enabled: true
       mtu: 9216
       name: Vlan3100
+  pim_interfaces:
+    - interface: Loopback1
+      hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/1
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/3
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/2
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/4
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Ethernet1/5
+    - hello_interval: 250
+      hello_interval_ms: true
+      sparse: true
+      name: Vlan3100
                 
 ospf:
   processes:

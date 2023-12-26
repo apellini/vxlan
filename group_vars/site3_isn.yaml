@@ -30,6 +30,7 @@ l3_features:
   - interface-vlan
   - bfd
   - ospf
+  - pim
 
 svi:
   vlans:
