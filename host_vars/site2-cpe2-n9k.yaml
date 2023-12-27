@@ -110,15 +110,31 @@ l3:
         address_family:
           - afi: ipv4
             safi: unicast
+            send_community: both
             soft_reconfiguration_inbound:
               set: true
+              always: true
+          - afi: l2vpn
+            safi: evpn
+            send_community: both
+            soft_reconfiguration_inbound:
+              set: true
+              always: true
       - name: NOC_UNDERLAY-CPE-IBGP
         update_source: Loopback1
         address_family:
           - afi: ipv4
             safi: unicast
+            send_community: both
             soft_reconfiguration_inbound:
               set: true
+              always: true
+          - afi: l2vpn
+            safi: evpn
+            send_community: both
+            soft_reconfiguration_inbound:
+              set: true
+              always: true
   bgp:
     as_number: 65001
     log_neighbor_changes: true
