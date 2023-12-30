@@ -21,9 +21,17 @@
       cisco.nxos.nxos_pim:
         bfd: enable
 
-    - name: Configure RP Address
+    - name: ISN - Configure RP Address
       cisco.nxos.nxos_config:
         lines: 
           - "ip pim rp-address {{ item.rp_address }} group-list {{ item.group_list }} bidir"
         parents: "vrf context {{ vrf.name }}"
       loop: "{{ pim }}"
+      when: inventory_hostname in groups['isn']
+
+    - name: CPE - Configure RP Address
+      cisco.nxos.nxos_config:
+        lines: 
+          - "ip pim rp-address {{ item.rp_address }} group-list {{ item.group_list }} bidir"
+      loop: "{{ pim }}"
+      when: inventory_hostname in groups['cpe']

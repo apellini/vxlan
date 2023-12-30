@@ -116,9 +116,6 @@ l3:
           - afi: l2vpn
             safi: evpn
             send_community: both
-            soft_reconfiguration_inbound:
-              set: true
-              always: true
   bgp:
     as_number: 65000
     log_neighbor_changes: true
