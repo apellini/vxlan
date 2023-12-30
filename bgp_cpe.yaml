@@ -8,6 +8,10 @@
         state: enabled
       loop: "{{ l3_features }}"
 
+    - name: Enable overlay
+      cisco.nxos.nxos_evpn_global:
+        nv_overlay_evpn: true
+
     - name: Configure BGP Template & Process
       cisco.nxos.nxos_bgp_templates:
         config: "{{ l3.bgp_templates }}"

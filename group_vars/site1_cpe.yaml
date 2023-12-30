@@ -36,6 +36,9 @@ l3_features:
   - ospf
   - bgp
   - pim
+  - vn-segment-vlan-based
+  - nv overlay
+  - fabric forwarding
 
 vlan_hosts:
   - enabled: true

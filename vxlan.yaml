@@ -2,16 +2,6 @@
 - name: Enable VXLAN
   hosts: cpe
   tasks:
-    - name: Enable features
-      cisco.nxos.nxos_feature:
-        feature: "{{ item }}"
-        state: enabled
-      loop: "{{ vxlan_features }}"
-
-    - name: Enable overlay
-      cisco.nxos.nxos_evpn_global:
-        nv_overlay_evpn: true
-
     - name: Configure VLAN Mapped to VNI
       cisco.nxos.nxos_vlans:
         config: "{{ vlan_hosts }}"
