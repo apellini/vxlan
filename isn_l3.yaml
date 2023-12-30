@@ -6,6 +6,7 @@
       cisco.nxos.nxos_vrf:
         name: "{{ vrf.name }}"
         state: present
+      when: inventory_hostname in groups['isn']
 
     - name: Enable features
       cisco.nxos.nxos_feature:
@@ -28,6 +29,7 @@
         vrf: "{{ vrf.name }}"
         state: present
       loop: "{{ l3.members }}"
+      when: inventory_hostname in groups['isn']
 
     - name: Assign IP to interface
       cisco.nxos.nxos_l3_interfaces:
