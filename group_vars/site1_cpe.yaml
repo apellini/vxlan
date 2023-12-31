@@ -53,3 +53,4 @@ evni:
     route_distinguisher: auto
     route_target_export: auto
     route_target_import: auto
+    multicast_group: 239.192.22.2
