@@ -9,16 +9,21 @@
     - name: Configure EVPN
       cisco.nxos.nxos_evpn_vni:
         vni: "{{ item.vni }}"
-        interface: "{{ item.interface }}"
         route_distinguisher: "{{ item.route_distinguisher }}"
         route_target_import: "{{ item.route_target_import }}"
         route_target_export: "{{ item.route_target_export }}"
-        multicast_group: "{{ item.multicast_group }}"
         state: present
       loop: "{{ evni }}"
 
     - name: Configure VTEP Interface
       cisco.nxos.nxos_vxlan_vtep: "{{ vxlan_vtep_interface }}"
+
+    - name: Configure VTEP VNI
+      cisco.nxos.nxos_vxlan_vtep_vni:
+        interface: "{{ item.interface }}"
+        vni: "{{ item.vni }}"
+        multicast_group: "{{ item.multicast_group }}"
+      loop: "{{ evni }}"
 
     - name: Save configuration
       cisco.nxos.nxos_config:
