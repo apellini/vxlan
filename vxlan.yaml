@@ -9,6 +9,7 @@
     - name: Configure EVPN
       cisco.nxos.nxos_evpn_vni:
         vni: "{{ item.vni }}"
+        interface: "{{ item.interface }}"
         route_distinguisher: "{{ item.route_distinguisher }}"
         route_target_import: "{{ item.route_target_import }}"
         route_target_export: "{{ item.route_target_export }}"
