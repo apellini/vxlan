@@ -55,3 +55,4 @@ evni:
     route_target_import: auto
     multicast_group: 239.192.22.2
     interface: nve1
+    assoc_vrf: false

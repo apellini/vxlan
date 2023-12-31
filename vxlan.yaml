@@ -23,6 +23,8 @@
         interface: "{{ item.interface }}"
         vni: "{{ item.vni }}"
         multicast_group: "{{ item.multicast_group }}"
+        assoc_vrf: "{{ item.assoc_vrf }}"
+        state: present
       loop: "{{ evni }}"
 
     - name: Save configuration
