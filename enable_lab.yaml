@@ -1,0 +1,13 @@
+---
+- name: Enable interfaces on LAB
+  hosts: isn,cpe
+  tasks:
+    - name: Disable Interface
+      cisco.nxos.interfaces:
+        config: "{{ lab.disable }}"
+        state: merged
+
+    - name: Enable Interface
+      cisco.nxos.interfaces:
+        config: "{{ lab.enable }}"
+        state: merged

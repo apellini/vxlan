@@ -4,6 +4,26 @@ vpc_device:
   pkl_src: 10.190.20.13
   role_priority: 32768
 
+lab:
+  disable:
+    - enabled: false
+      name: Ethernet1/4
+    - enabled: false
+      name: Ethernet1/5
+    - enabled: false
+      name: Ethernet1/6
+    - enabled: false
+      name: Ethernet1/7
+  enable:
+    - enabled: true
+      name: Ethernet1/4
+    - enabled: true
+      name: Ethernet1/5
+    - enabled: true
+      name: Ethernet1/6
+    - enabled: true
+      name: Ethernet1/7
+
 l3:
   ospf_members:
     - name: Loopback1
