@@ -50,8 +50,5 @@ vlan_hosts:
 evni:
   - vni: 4003402
     route_distinguisher: auto
-    route_target_export:
-      - 65001:100
-    route_target_import:
-      - 65000:100
-      - 65002:100
+    route_target_export: auto
+    route_target_import: auto
