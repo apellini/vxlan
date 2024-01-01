@@ -11,3 +11,35 @@
       cisco.nxos.interfaces:
         config: "{{ lab.enable }}"
         state: merged
+
+- name: Recreate loopback
+  hosts: cpe
+  tasks:
+    - name: Delete interface loopback
+      cisco.nxos.interfaces:
+        config: "{{ lab.loopback.delete }}"
+        state: deleted
+    
+    - name: Configure interface loopback
+      cisco.nxos.interfaces:
+        config: "{{ lab.loopback.create }}"
+        state: merged
+
+    - name: Assign IP to interface
+      cisco.nxos.nxos_l3_interfaces:
+        config: "{{ lab.loopback.l3_members }}"
+        state: merged
+
+    - name: Configure OSPF Interface
+      cisco.nxos.nxos_ospf_interfaces:
+        config: "{{ lab.loopback.ospf_members }}"
+        state: merged
+
+    - name: Configure PIM Interfaces
+      cisco.nxos.nxos_pim_interface:
+        hello_interval: "{{ item.hello_interval }}"
+        hello_interval_ms: "{{ item.hello_interval_ms }}"
+        interface: "{{ item.interface }}"
+        sparse: "{{ item.sparse }}"
+        state: present
+      loop: "{{ lab.loopback.pim_interfaces }}"

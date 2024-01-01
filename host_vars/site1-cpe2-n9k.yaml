@@ -23,7 +23,31 @@ lab:
       name: Ethernet1/6
     - enabled: true
       name: Ethernet1/7
-
+  loopback:
+    delete:
+      - name: Loopback1
+    create:
+      - enabled: true
+        name: Loopback1
+    l3_members:
+      - name: Loopback1
+        ipv4:
+          - address: 100.66.1.244/32
+          - address: 100.66.1.238/32
+            secondary: true
+    ospf_members:
+      - name: Loopback1
+        address_family:
+          - afi: ipv4
+            processes:
+              - process_id: 100
+                area:
+                  area_id: 0.0.0.0
+    pim_interfaces:
+      - interface: Loopback1
+        hello_interval: 250
+        hello_interval_ms: true
+        sparse: true
 l3:
   ospf_members:
     - name: Loopback1
