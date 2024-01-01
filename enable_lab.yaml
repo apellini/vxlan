@@ -16,9 +16,10 @@
   hosts: cpe
   tasks:
     - name: Delete interface loopback
-      cisco.nxos.interfaces:
-        config: "{{ lab.loopback.delete }}"
-        state: deleted
+      cisco.nxos.nxos_config:
+        lines:
+          - no interface {{ item.name }}
+      loop: "{{ lab.loopback.delete }}"
     
     - name: Configure interface loopback
       cisco.nxos.interfaces:
