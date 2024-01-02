@@ -35,3 +35,7 @@
           - "ip pim rp-address {{ item.rp_address }} group-list {{ item.group_list }} bidir"
       loop: "{{ pim }}"
       when: inventory_hostname in groups['cpe']
+
+    - name: Save configuration
+      cisco.nxos.nxos_config:
+        save_when: always
