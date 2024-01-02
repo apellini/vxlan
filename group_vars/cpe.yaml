@@ -6,3 +6,22 @@ vxlan_vtep_interface:
   global_suppress_arp: false
   global_ingress_replication_bgp: false
   state: present
+
+vrf:
+  name: NOC_UNDERLAY
+
+vrfs:
+  definition:
+    - name: NOC_CPE
+    - name: NOC_BACKEND
+      vni: 9003102
+      rd: auto
+  address_family:
+    - name: NOC_BACKEND
+      route_target_both_auto_evpn: true
+      route_targets:
+        direction: both
+        rt: auto
+        state: present
+
+fabric_forwarding_mac: 0000.1111.2222

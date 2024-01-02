@@ -39,6 +39,7 @@ l3_features:
   - vn-segment-vlan-based
   - nv overlay
   - fabric forwarding
+  - hsrp
 
 vlan_hosts:
   - enabled: true
@@ -47,6 +48,18 @@ vlan_hosts:
     vlan_id: 3402
     name: V3402_TEST_BCG
     mapped_vni: 4003402
+  - enabled: true
+    mode: ce
+    state: active
+    vlan_id: 3102
+    name: V3102_VXLAN_BACKEND
+    mapped_vni: 9003102
+  - enabled: true
+    mode: ce
+    state: active
+    vlan_id: 3403
+    name: V3403_TEST_BCG
+    mapped_vni: 4003403
 
 evni:
   - vni: 4003402
@@ -54,5 +67,12 @@ evni:
     route_target_export: auto
     route_target_import: auto
     multicast_group: 239.192.22.2
+    interface: nve1
+    assoc_vrf: false
+  - vni: 4003403
+    route_distinguisher: auto
+    route_target_export: auto
+    route_target_import: auto
+    multicast_group: 239.192.22.3
     interface: nve1
     assoc_vrf: false
